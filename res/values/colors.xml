@@ -15,6 +15,8 @@
   -->
 
 <resources>
-    <color name="extension_list_item_color">#09c</color>
-    <color name="configure_light_background">#f2f2f2</color>
+    <color name="extension_list_item_color">@android:color/holo_blue_light</color>
+    <color name="configure_light_background">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="holo">#ff33b5e5</color>
 </resources>

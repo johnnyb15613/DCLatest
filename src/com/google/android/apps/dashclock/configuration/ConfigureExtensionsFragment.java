@@ -37,12 +37,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -102,6 +105,8 @@ public class ConfigureExtensionsFragment extends Fragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        PreferenceManager.setDefaultValues(getActivity().getApplicationContext(), R.xml.pref_app, false);
 
         // Set up helper components
         mExtensionManager = ExtensionManager.getInstance(getActivity());
@@ -486,10 +491,33 @@ public class ConfigureExtensionsFragment extends Fragment implements
                         convertView = getActivity().getLayoutInflater()
                                 .inflate(R.layout.list_item_extension, parent, false);
                     }
+                    
+                    SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+                    
+                    String extensionList_title = app_preferences.getString("ListTitle", "");
+                    System.out.println("NullChecker ExpandedTitle - " + extensionList_title);
+                    
+                    String extensionList_body = app_preferences.getString("ListBody", "");
+                    System.out.println("NullChecker ExpandedTitle - " + extensionList_body);
 
                     TextView titleView = (TextView) convertView.findViewById(android.R.id.text1);
                     TextView descriptionView = (TextView) convertView
                             .findViewById(android.R.id.text2);
+                    
+                    if (extensionList_title != "") {
+                    	int extension_title_color = Color.parseColor(extensionList_title);
+                    	titleView.setTextColor(extension_title_color);
+                    }else{
+                    	titleView.setTextColor(0xff33b5e5);
+                    }
+                    
+                    if (extensionList_body != "") {
+                    	int extension_body_color = Color.parseColor(extensionList_body);
+                    	descriptionView.setTextColor(extension_body_color);
+                    }else{
+                    	descriptionView.setTextColor(0xffffffff);
+                    }
+                    
                     ImageView iconView = (ImageView) convertView.findViewById(android.R.id.icon1);
                     View settingsButton = convertView.findViewById(R.id.settings_button);
 

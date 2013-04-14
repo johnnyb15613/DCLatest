@@ -267,6 +267,11 @@ public class ConfigurationActivity extends Activity {
                     HelpUtils.showAboutDialog(
                             ConfigurationActivity.this);
                     return true;
+                    
+                case R.id.color_options:
+                	Intent color = new Intent(ConfigurationActivity.this, ColorOptionsPreference.class);
+    		        startActivity(color);
+                    return true;
             }
             return false;
         }

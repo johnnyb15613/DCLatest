@@ -32,12 +32,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
-
 import java.util.List;
 import java.util.Locale;
 
@@ -84,6 +84,7 @@ public abstract class DashClockRenderer {
         }
 
         // Load some settings
+        PreferenceManager.setDefaultValues(mContext, R.xml.pref_app, false);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
         boolean hideSettings = sp.getBoolean(PREF_HIDE_SETTINGS, false);
 
@@ -216,6 +217,17 @@ public abstract class DashClockRenderer {
     }
 
     public  void renderClockFace(ViewBuilder vb) {
+    	SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        
+        String extension_time = app_preferences.getString("Time", "");
+        System.out.println("NullChecker Time - " + extension_time);
+        
+        String extension_date = app_preferences.getString("Date", "");
+        System.out.println("NullChecker Date - " + extension_date);
+        
+        String extension_minimized = app_preferences.getString("MinimizedTitle", "");
+        System.out.println("NullChecker Time - " + extension_minimized);
+        
         vb.removeAllViews(R.id.time_container);
         vb.addView(R.id.time_container,
                 vb.inflateChildLayout(
@@ -226,6 +238,26 @@ public abstract class DashClockRenderer {
                 vb.inflateChildLayout(
                         AppearanceConfig.getCurrentDateLayout(mContext),
                         R.id.date_container));
+        
+        if (extension_date != "") {
+        	int extension_date_color = Color.parseColor(extension_date);
+        	vb.setTextColor(R.id.date_text, extension_date_color);
+          vb.setTextColor(R.id.date_text2, extension_date_color);
+          vb.setTextColor(R.id.date_text3, extension_date_color);
+        }else{
+          vb.setTextColor(R.id.date_text, 0xffffffff);
+          vb.setTextColor(R.id.date_text2, 0xffffffff);
+          vb.setTextColor(R.id.date_text3, 0xffffffff);
+        }
+        
+        if (extension_time != "") {
+        	int extension_time_color = Color.parseColor(extension_time);
+        	vb.setTextColor(R.id.time_text,  extension_time_color);
+          vb.setTextColor(R.id.time_text2,  extension_time_color);
+        }else{
+          vb.setTextColor(R.id.time_text,  0xff33b5e5);
+          vb.setTextColor(R.id.time_text2,  0xff33b5e5);
+        }
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
         Intent clockIntent = AppChooserPreference.getIntentValue(
@@ -239,6 +271,11 @@ public abstract class DashClockRenderer {
     public Object renderCollapsedExtension(Object container, ExtensionWithData ewd) {
         ViewBuilder vb = onCreateViewBuilder();
         vb.loadRootLayout(container, R.layout.widget_include_collapsed_extension);
+        
+        SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        
+        String extension_minimized = app_preferences.getString("MinimizedTitle", "");
+        System.out.println("NullChecker Notif Count - " + extension_minimized);
 
         Resources res = mContext.getResources();
         int extensionCollapsedTextSizeSingleLine = res
@@ -257,12 +294,26 @@ public abstract class DashClockRenderer {
             vb.setTextViewTextSize(R.id.collapsed_extension_text,
                     TypedValue.COMPLEX_UNIT_PX,
                     extensionCollapsedTextSizeTwoLine);
+            
+            if (extension_minimized != "") {
+            	int extension_minimized_color = Color.parseColor(extension_minimized);
+            	vb.setTextColor(R.id.collapsed_extension_text, extension_minimized_color);
+            }else{
+            	vb.setTextColor(R.id.collapsed_extension_text, 0xff33b5e5);
+            }
+            
         } else {
             vb.setTextViewSingleLine(R.id.collapsed_extension_text, true);
             vb.setTextViewMaxLines(R.id.collapsed_extension_text, 1);
             vb.setTextViewTextSize(R.id.collapsed_extension_text,
                     TypedValue.COMPLEX_UNIT_PX,
                     extensionCollapsedTextSizeSingleLine);
+            if (extension_minimized != "") {
+            	int extension_minimized_color = Color.parseColor(extension_minimized);
+            	vb.setTextColor(R.id.collapsed_extension_text, extension_minimized_color);
+            }else{
+            	vb.setTextColor(R.id.collapsed_extension_text, 0xff33b5e5);
+            }
         }
 
         vb.setTextViewText(R.id.collapsed_extension_text,
@@ -303,6 +354,28 @@ public abstract class DashClockRenderer {
             vb.useRoot(convertRoot);
         } else {
             vb.loadRootLayout(container, R.layout.widget_list_item_expanded_extension);
+        }
+        
+        SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        
+        String extension_title = app_preferences.getString("ExpandedTitle", "");
+        System.out.println("NullChecker ExpandedTitle - " + extension_title);
+        
+        String extension_body = app_preferences.getString("ExpandedBody", "");
+        System.out.println("NullChecker ExpandedBody - " + extension_body);
+        
+        if (extension_title != "") {
+        	int extension_title_color = Color.parseColor(extension_title);
+        	vb.setTextColor(R.id.text1, extension_title_color);
+        }else{
+        	vb.setTextColor(R.id.text1, 0xff33b5e5);
+        }
+        
+        if (extension_body != "") {
+        	int extension_body_color = Color.parseColor(extension_body);
+        	vb.setTextColor(R.id.text2, extension_body_color);
+        }else{
+        	vb.setTextColor(R.id.text2, 0xffffffff);
         }
 
         if (ewd == null || ewd.latestData == null) {

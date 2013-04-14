@@ -21,12 +21,16 @@
     android:baselineAligned="true">
 
     <TextClock
+        android:id="@+id/time_text"
+        android:textColor="@color/white"
         style="@style/TimeComponent"
         android:format12Hour="h"
         android:format24Hour="kk"
         android:fontFamily="sans-serif-light" />
 
     <TextClock
+        android:id="@+id/time_text2"
+        android:textColor="@color/white"
         style="@style/TimeComponent"
         android:alpha="@alpha/secondary_item"
         android:format12Hour="mm"

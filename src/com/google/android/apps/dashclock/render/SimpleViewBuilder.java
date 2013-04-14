@@ -101,6 +101,11 @@ public class SimpleViewBuilder implements ViewBuilder {
     public void addView(int viewId, Object child) {
         ((ViewGroup) mRootView.findViewById(viewId)).addView((View) child);
     }
+    
+    @Override
+    public void setTextColor(int viewId, int color) {
+        ((TextView) mRootView.findViewById(viewId)).setTextColor(color);
+    }
 
     @Override
     public void removeAllViews(int viewId) {

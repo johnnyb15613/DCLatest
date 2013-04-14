@@ -29,6 +29,7 @@
 
     <TextView
         style="@style/ExtensionData.Text.Collapsed"
-        android:id="@+id/collapsed_extension_text" />
+        android:id="@+id/collapsed_extension_text"
+        android:textColor="@color/white" />
 
 </LinearLayout>

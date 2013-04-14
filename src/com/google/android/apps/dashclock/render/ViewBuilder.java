@@ -35,6 +35,7 @@ public interface ViewBuilder {
     void setViewBackgroundColor(int viewId, int color);
     void setTextViewText(int viewId, CharSequence text);
     void setTextViewTextSize(int viewId, int unit, float size);
+    //void setInt(int viewId, String setTextColor, int color);
     void setTextViewSingleLine(int viewId, boolean singleLine);
     void setTextViewMaxLines(int viewId, int maxLines);
     void setImageViewBitmap(int viewId, Bitmap bitmap);
@@ -42,4 +43,5 @@ public interface ViewBuilder {
     void addView(int viewId, Object child);
     void removeAllViews(int viewId);
     Object getRoot();
+	void setTextColor(int viewId, int color);
 }

@@ -72,12 +72,17 @@
     <string name="about_body"><![CDATA[
         <a href="http://m.google.com/utos">Terms of Service</a>
         &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-        <a href="http://www.google.com/policies/privacy/">Privacy Policy</a><br><br>
-        Many thanks to these open source tools:<br><br>
+        <a href="http://www.google.com/policies/privacy/">Privacy Policy</a><br>
+        <a href="https://code.google.com/p/dashclock/">DashClock by Roman Nurik</a>
+        &nbsp;&nbsp;&middot;&nbsp;&nbsp;<br><br>
+        <a href="http://teamsourcery.com/">Modified by TeamSourcery</a><br>
+        By the Magic Man JohnnyB15613<br>
+       <a href="http://teamsourcery.com/phpBB3/index.php">Made for JBSourcery</a><br><br><br>
+        Many thanks to these open source tools:<br>
         <b><a href="http://www.androidicons.com/">Android Developer Icons</a></b><br>
         <i>by Günther Beyer of <a href="http://www.opoloo.com/">Opoloo</a></i><br><br>
         <b><a href="https://github.com/bauerca/drag-sort-listview">DragSortListView</a></b><br>
-        <i>by Carl A. Bauer</i>
+        <i>by Carl A. Bauer</i>        
     ]]></string>
 
     <!-- Weather -->
@@ -162,6 +167,41 @@
         few <i>extensions</i>?
         \n\n<b>Extensions</b> show you relevant and timely information, right inside DashClock!
         Try them out by adding a few extensions below.
-    </string>
-
+    </string>  
+    
+    <!-- Preferences -->
+	<string name="pref_category_time_and_date">Time and Date Text Colors</string>
+    <string name="timeAndDate_time">Time Text Color</string>
+    <string name="timeAndDate_date">Date Text Color</string>
+    
+    <string name="pref_category_extension_expanded">Extension Expanded Text Colors</string>
+    <string name="extensionExpanded_title">Expanded Title</string>
+    <string name="extensionExpanded_title_summary">The Main Text</string>
+    <string name="extensionExpanded_body">Expanded Body</string>
+    <string name="extensionExpanded_body_summary">The Secondary Text</string>
+    
+    <string name="pref_category_extension_minimized">Extension Minimized Text Color</string>
+    <string name="extensionMinimized_title">Notification Count</string>
+    
+    <string name="pref_category_extension_list">Settings List Text Colors</string>
+    <string name="extensionList_title">Settings List Title</string>
+    <string name="extensionList_title_summary">The Extension name</string>
+    <string name="extensionList_body">Settings List Body</string>
+    <string name="extensionList_body_summary">The text that explains what the Extension does</string>
+    
+    <string name="color_options">Change Widget Colors</string>
+    <string name="prefs_reset">Reset All Colors To Stock</string>
+    
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="ics_color">Holo</string>
+    <string name="set">Set</string>
+    <string name="bp_theme_button">BP Theme Color</string>
+    <string name="bp_text1_button">BP Text Color 1</string>
+    <string name="bp_text2_button">BP Text Color 2</string>
 </resources>

@@ -79,8 +79,6 @@ public class Utils {
                 Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(outBitmap);
         baseIcon.setBounds(0, 0, EXTENSION_ICON_SIZE, EXTENSION_ICON_SIZE);
-        baseIcon.setColorFilter(color,
-                PorterDuff.Mode.SRC_IN);
         baseIcon.draw(canvas);
         baseIcon.setColorFilter(null);
         baseIcon.setCallback(null); // free up any references
@@ -184,7 +182,7 @@ public class Utils {
                 Bitmap newBitmap = Bitmap.createBitmap(sourceBitmapDrawable.getBitmap());
                 Canvas newCanvas = new Canvas(newBitmap);
                 Paint paint = new Paint();
-                paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+                //paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
                 paint.setColor(color);
                 newCanvas.drawRect(0, 0, newBitmap.getWidth(), newBitmap.getHeight(), paint);
                 BitmapDrawable recoloredDrawable = new BitmapDrawable(

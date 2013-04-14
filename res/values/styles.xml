@@ -103,7 +103,7 @@
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="ConfigurationActivityTheme" parent="android:Theme.Holo.Light.DialogWhenLarge.NoActionBar">
+    <style name="ConfigurationActivityTheme" parent="android:Theme.Holo.NoActionBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowShowWallpaper">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>

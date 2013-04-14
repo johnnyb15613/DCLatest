@@ -19,6 +19,7 @@
     android:layout_height="wrap_content">
 
     <AnalogClock xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/analog_clock"
         android:layout_width="@dimen/analog_clock_size"
         android:layout_height="@dimen/analog_clock_size"
         android:paddingBottom="@dimen/clock_margin_offset"

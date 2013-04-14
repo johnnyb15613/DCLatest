@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory android:title="@string/pref_category_time_and_date">
+        
+		<net.margaritov.preference.colorpicker.ColorPickerPreference 
+			android:key="timeAndDate_TIME"
+			android:title="@string/timeAndDate_time"
+			android:defaultValue="@color/white" />
+		
+		<net.margaritov.preference.colorpicker.ColorPickerPreference 
+			android:key="timeAndDate_DATE"
+			android:title="@string/timeAndDate_date"
+			android:defaultValue="@color/holo" />
+		
+	</PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/pref_category_extension_expanded">
+        
+		<net.margaritov.preference.colorpicker.ColorPickerPreference 
+			android:key="extensionExpanded_TITLE"
+			android:title="@string/extensionExpanded_title" 
+			android:summary="@string/extensionExpanded_title_summary"
+			android:defaultValue="@color/holo" />
+		
+		<net.margaritov.preference.colorpicker.ColorPickerPreference 
+			android:key="extensionExpanded_BODY"
+			android:title="@string/extensionExpanded_body" 
+			android:summary="@string/extensionExpanded_body_summary"
+			android:defaultValue="@color/white" />
+		
+	</PreferenceCategory>
+	
+    <PreferenceCategory android:title="@string/pref_category_extension_minimized">
+        
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+			android:key="extensionMinimized_TITLE"
+			android:title="@string/extensionMinimized_title"
+			android:defaultValue="@color/white" />
+		
+	</PreferenceCategory>
+	
+    <PreferenceCategory android:title="@string/pref_category_extension_list">
+        
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+			android:key="extensionList_TITLE"
+			android:title="@string/extensionList_title"
+			android:summary="@string/extensionList_title_summary"
+			android:defaultValue="@color/holo" />
+        
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+			android:key="extensionList_BODY"
+			android:title="@string/extensionList_body"
+			android:summary="@string/extensionList_body_summary"
+			android:defaultValue="@color/white" />
+		
+	</PreferenceCategory>
+
+</PreferenceScreen>

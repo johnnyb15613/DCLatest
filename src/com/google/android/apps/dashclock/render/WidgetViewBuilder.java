@@ -119,6 +119,11 @@ public class WidgetViewBuilder implements ViewBuilder {
     public void setViewClickFillInIntent(int viewId, Intent fillIntent) {
         mRemoteViews.setOnClickFillInIntent(viewId, fillIntent);
     }
+    
+    @Override
+    public void setTextColor(int viewId, int color) {
+        mRemoteViews.setInt(viewId, "setTextColor", color);
+    }
 
     @Override
     public Object getRoot() {

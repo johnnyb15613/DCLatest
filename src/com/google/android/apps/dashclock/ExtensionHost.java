@@ -16,11 +16,6 @@
 
 package com.google.android.apps.dashclock;
 
-import com.google.android.apps.dashclock.api.DashClockExtension;
-import com.google.android.apps.dashclock.api.ExtensionData;
-import com.google.android.apps.dashclock.api.internal.IExtension;
-import com.google.android.apps.dashclock.api.internal.IExtensionHost;
-
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -50,6 +45,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+
+import com.google.android.apps.dashclock.api.DashClockExtension;
+import com.google.android.apps.dashclock.api.ExtensionData;
+import com.google.android.apps.dashclock.api.internal.IExtension;
+import com.google.android.apps.dashclock.api.internal.IExtensionHost;
 
 import static com.google.android.apps.dashclock.LogUtils.LOGE;
 
